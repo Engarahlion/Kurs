@@ -23,6 +23,7 @@ public class PaymentPage {
     private final SelenideElement successNotification = $(withText("Операция одобрена"));
     private final SelenideElement failNotification = $(withText("Банк отказал"));
     private final SelenideElement errorNotification = $(".input__sub");
+    private final SelenideElement errorSNotification = $("input[placeholder='999']").closest(".input__inner").$(".input__sub");
 
     public void enterCardInfo(DataHelper.CardInfo cardInfo) {
         cardField.setValue(cardInfo.getCard());
@@ -43,6 +44,10 @@ public class PaymentPage {
 
     public void errorNotification(String expectedText) {
         errorNotification.shouldHave(text(expectedText)).shouldBe(visible);
+    }
+
+    public void errorSNotification(String expectedText) {
+        errorSNotification.shouldHave(text(expectedText)).shouldBe(visible);
     }
 
     public void errorAllNotification() {

@@ -217,6 +217,6 @@ public class CardTest {
         var paymentPage = mainPage.openPaymentPage();
         var cardInfo = DataHelper.cvcSpace();
         paymentPage.enterCardInfo(cardInfo);
-        paymentPage.errorNotification("Поле обязательно для заполнения");
+        paymentPage.errorSNotification("Поле обязательно для заполнения");
     }
 }
