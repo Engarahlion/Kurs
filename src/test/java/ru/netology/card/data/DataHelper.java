@@ -55,6 +55,10 @@ public class DataHelper {
         return FAKER.numerify("###");
     }
 
+    private static String generateRandomWrongCVC() {
+        return FAKER.numerify("##");
+    }
+
     private static String generateRandomName() {
         return FAKER.name().fullName();
     }
@@ -73,6 +77,10 @@ public class DataHelper {
 
     public static CardInfo getWrongFormatMonth() {
         return new CardInfo(FAKER.numerify("1111 2222 3333 4444"), "1", generateRandomYear(), generateRandomName(), generateRandomCVC());
+    }
+
+    public static CardInfo getWrongFormatCVC() {
+        return new CardInfo(FAKER.numerify("1111 2222 3333 4444"), generateMonth(1), generateRandomYear(), generateRandomName(), generateRandomWrongCVC());
     }
 
     public static CardInfo getMonth13() {
@@ -99,11 +107,27 @@ public class DataHelper {
         return new CardInfo("1111 2222 3333 4444", generateMonth(1), generateRandomYear(), "!\"№;%:", generateRandomCVC());
     }
 
-    public static CardInfo nameSpace() {
-        return new CardInfo("1111 2222 3333 4444", generateMonth(1), generateRandomYear(), "          ", generateRandomCVC());
-    }
-
     public static CardInfo spaceField() {
         return new CardInfo("", "", "", "", "");
+    }
+
+    public static CardInfo numberSpace() {
+        return new CardInfo("", generateMonth(1), generateRandomYear(), generateRandomName(), generateRandomCVC());
+    }
+
+    public static CardInfo monthSpace() {
+        return new CardInfo("1111 2222 3333 4444", "", generateRandomYear(), generateRandomName(), generateRandomCVC());
+    }
+
+    public static CardInfo yearSpace() {
+        return new CardInfo("1111 2222 3333 4444", generateMonth(1), "", generateRandomName(), generateRandomCVC());
+    }
+
+    public static CardInfo nameSpace() {
+        return new CardInfo("1111 2222 3333 4444", generateMonth(1), generateRandomYear(), "", generateRandomCVC());
+    }
+
+    public static CardInfo cvcSpace() {
+        return new CardInfo("1111 2222 3333 4444", generateMonth(1), generateRandomYear(), generateRandomName(), "");
     }
 }

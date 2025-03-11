@@ -37,12 +37,12 @@ public class CardTest {
     }
 
     @Test
-    void successPaymentDeclinedCard() {
+    void failPaymentDeclinedCard() {
         var mainPage = new MainPage();
         var paymentPage = mainPage.openPaymentPage();
         var cardInfo = DataHelper.getDeclinedCardInfo();
         paymentPage.enterCardInfo(cardInfo);
-        paymentPage.successNotification();
+        paymentPage.failNotification();
         Assertions.assertEquals("DECLINED", SQLHelper.getStatus());
     }
 
@@ -158,12 +158,12 @@ public class CardTest {
     }
 
     @Test
-    void setNameSpace() {
+    void paymentWrongFormatCVC() {
         var mainPage = new MainPage();
         var paymentPage = mainPage.openPaymentPage();
-        var cardInfo = DataHelper.nameSpace();
+        var cardInfo = DataHelper.getWrongFormatCVC();
         paymentPage.enterCardInfo(cardInfo);
-        paymentPage.errorNotification("Поле обязательно для заполнения");
+        paymentPage.errorNotification("Неверный формат");
     }
 
     @Test
@@ -173,5 +173,50 @@ public class CardTest {
         var cardInfo = DataHelper.spaceField();
         paymentPage.enterCardInfo(cardInfo);
         paymentPage.errorAllNotification();
+    }
+
+    @Test
+    void setNumberSpace() {
+        var mainPage = new MainPage();
+        var paymentPage = mainPage.openPaymentPage();
+        var cardInfo = DataHelper.numberSpace();
+        paymentPage.enterCardInfo(cardInfo);
+        paymentPage.errorNotification("Поле обязательно для заполнения");
+    }
+
+    @Test
+    void setMonthSpace() {
+        var mainPage = new MainPage();
+        var paymentPage = mainPage.openPaymentPage();
+        var cardInfo = DataHelper.monthSpace();
+        paymentPage.enterCardInfo(cardInfo);
+        paymentPage.errorNotification("Поле обязательно для заполнения");
+    }
+
+    @Test
+    void setYearSpace() {
+        var mainPage = new MainPage();
+        var paymentPage = mainPage.openPaymentPage();
+        var cardInfo = DataHelper.yearSpace();
+        paymentPage.enterCardInfo(cardInfo);
+        paymentPage.errorNotification("Поле обязательно для заполнения");
+    }
+
+    @Test
+    void setNameSpace() {
+        var mainPage = new MainPage();
+        var paymentPage = mainPage.openPaymentPage();
+        var cardInfo = DataHelper.nameSpace();
+        paymentPage.enterCardInfo(cardInfo);
+        paymentPage.errorNotification("Поле обязательно для заполнения");
+    }
+
+    @Test
+    void setCvcSpace() {
+        var mainPage = new MainPage();
+        var paymentPage = mainPage.openPaymentPage();
+        var cardInfo = DataHelper.cvcSpace();
+        paymentPage.enterCardInfo(cardInfo);
+        paymentPage.errorNotification("Поле обязательно для заполнения");
     }
 }
