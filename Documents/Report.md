@@ -8,12 +8,12 @@
 ### Результаты тестирования
 
 - общее количество тест-кейсов - 21 (для обеих СУБД)
-- количество успешных тест-кейсов - 13 (61,91%)
-- количество не успешных тест-кейсов - 8 (38,09%)
+- количество успешных тест-кейсов - 12 (57,14%)
+- количество не успешных тест-кейсов - 9 (42,86%)
+  
+![555](https://github.com/user-attachments/assets/95ddf565-1593-4a4a-a10d-0bb289eccf3d)
 
-![image](https://github.com/user-attachments/assets/3a593175-e8c2-42b5-9762-0b290072552b)
-
-![image](https://github.com/user-attachments/assets/ed8727f8-e158-4a57-83fd-a004cc6b2b55)
+![666](https://github.com/user-attachments/assets/dc437700-2fab-441b-ac6c-ad90b2b542f6)
 
 ### Общие рекомендации
 
